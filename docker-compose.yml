@@ -1,0 +1,33 @@
+version: '3'
+services:
+  nodeserver:
+    build:
+      context: ./got/
+    depends_on:
+      - mongo
+      - mongo-express
+    ports:
+      - "5005:5000"
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: pass
+    ports:
+      - 27017:27017
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: pass
+  nginx:
+    image: nginx
+    restart: always 
+    build:
+      context: ./nginx
+    ports:
+      - "80:80" 
