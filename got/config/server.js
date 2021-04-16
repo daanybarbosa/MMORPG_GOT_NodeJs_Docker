@@ -1,20 +1,13 @@
-/* importar o módulo do framework express */
 var express = require('express');
-
-/* importar o módulo do consign */
 var consign = require('consign');
-
-/* importar o módulo do body-parser */
 var bodyParser = require('body-parser');
-
-/* importar o módulo do express-validator */
 var expressValidator = require('express-validator');
-
-/* importar o módulo do express-session */
 var expressSession = require('express-session');
 
-/* importar o modulo do mongoose */
-const mongoose = require('mongoose');
+/* importar Datadog-agent */
+const tracer = require('dd-trace').init({
+	env: 'dev', service: 'node', hostname: '172.17.0.1', port: 8126
+}); 
 
 /* iniciar o objeto do express */
 var app = express();

@@ -1,14 +1,7 @@
 const mongoose = require('mongoose');
 
 // Conectando ao MongoDB
-mongoose
-  .connect(
-    'mongodb://mongo:27017/mmorpg_got_docker',
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log('MongoDB Conectado'))
-  .catch(err => console.log(err));
-
+mongoose.connect('mongodb+srv://admin:12345' + process.env.MONGO_ATLAS_PW + '@got.1ytlj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
 /* importar o mongodb 
 var mongo = require('mongodb');
