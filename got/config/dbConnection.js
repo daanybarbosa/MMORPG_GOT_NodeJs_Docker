@@ -1,11 +1,18 @@
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 
-// Conectando ao MongoDB
-mongoose.connect('mongodb+srv://admin:12345' + process.env.MONGO_ATLAS_PW + '@got.1ytlj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
-
+mongoose
+  .connect('mongodb://db:27017/got-node-docker', {
+    useNewUrlParser: true
+  })
+  .then(result => {
+    console.log('MongoDB Conectado');
+  })
+  .catch(error => {
+    console.log(error);
+  });
+*/
 /* importar o mongodb 
 var mongo = require('mongodb');
-
 var connMongoDB = function(){
 	console.log('Entrou na função de conexão');
 	var db = new mongo.Db(
@@ -17,10 +24,9 @@ var connMongoDB = function(){
 		),
 		{}
 	);
-
 	return db;
 }
-
 module.exports = function(){
 	return connMongoDB;
-}*/
+}
+*/
