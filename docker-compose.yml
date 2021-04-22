@@ -1,34 +1,20 @@
 version: '3'
 services:
-  web:
-    image: nginx
+  nodeserver:
+    build:
+      context: ./got
+    depends_on:
+      - mongo
+    ports:
+      - "5005:5000"
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+  nginx:
+    #image: nginx
+    restart: always 
     build:
       context: ./nginx
     ports:
-      - '80:80'
-    depends_on: 
-      - nodeserver
-  db:
-    image: mongo
-    #environment:
-    #  MONGO_INITDB_ROOT_USERNAME: localhost
-    #  MONGO_INITDB_ROOT_PASSWORD: 12345
-    ports:
-      - '27017:27017'
-    volumes:
-      - ./data/db:/data/db
-  nodeserver:
-    image: danielesilva25/got-node-docker:latest
-    build:
-      context: ./got/
-    volumes: 
-      - ./:/got
-      - ./node_modules:/got/node_modules
-    environment: 
-      NODE_ENV: development
-    depends_on:
-      - db
-    links:
-      - db
-    ports:
-      - '5005:5000'
+      - "80:80" 

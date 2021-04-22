@@ -1,47 +1,3 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
-
-const usuarioSchema = new Schema({
-	nome: { type: String, required: true },
-	usuario: { type: String, required: true },
-	senha: { type: String, required: true },
-	casa: { type: String, required: true }
-});
-
-
-UsuariosDAO.prototype.inserirUsuario = function(usuario){
-const novoUsuario = new Usuario({
-	nome: req.body.nome,
-	usuario: req.body.usuario,
-	senha: req.body.senha,
-	casa: req.body.casa
-});
-
-novoUsuario
-	.save()
-	.then(result => {
-		res.json(result);
-	})
-	.catch(error => {
-		res.status(500).json(error);
-	});
-}
-
-UsuariosDAO.prototype.autenticar = function(usuario){
-	Usuario.find()
-	.then(usuarios => {
-		res.json(usuarios);
-	})
-	.catch(error => res.status(500).json(error));
-}
-
-module.exports = mongoose.model('usuarios', 'usuarioSchema');
-
-module.exports = function(){ 
-	return UsuariosDAO;
-}
-
-/*
 function UsuariosDAO(connection){
 	this._connection = connection();
 }
@@ -84,4 +40,4 @@ UsuariosDAO.prototype.autenticar = function(usuario, req, res){
 
 module.exports = function(){
 	return UsuariosDAO;
-}*/
+};

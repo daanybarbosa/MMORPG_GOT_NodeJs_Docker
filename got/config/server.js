@@ -3,7 +3,7 @@ var consign = require('consign');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var expressSession = require('express-session');
-const mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 
 /* importar Datadog-agent 
 const tracer = require('dd-trace').init({
@@ -35,22 +35,6 @@ app.use(expressSession({
 	saveUninitialized: false
 }));
 
-/* Adicionando o arquivo de rota no endpoint usuarios */
-const usuarios = require('./routes/cadastro');
-
-app.use('/api/cadastro', cadastro);
-
-/* configura o banco de dados MongoDB */
-mongoose
-  .connect('mongodb://db:27017/got-node-docker', {
-    useNewUrlParser: true
-  })
-  .then(result => {
-    console.log('MongoDB Conectado');
-  })
-  .catch(error => {
-    console.log(error);
-  });
 
 /* efetua o autoload das rotas, dos models e dos controllers para o objeto app */
 consign()

@@ -1,17 +1,4 @@
-/*const mongoose = require('mongoose');
-
-mongoose
-  .connect('mongodb://db:27017/got-node-docker', {
-    useNewUrlParser: true
-  })
-  .then(result => {
-    console.log('MongoDB Conectado');
-  })
-  .catch(error => {
-    console.log(error);
-  });
-*/
-/* importar o mongodb 
+/* importar o mongodb */
 var mongo = require('mongodb');
 var connMongoDB = function(){
 	console.log('Entrou na função de conexão');
@@ -29,4 +16,18 @@ var connMongoDB = function(){
 module.exports = function(){
 	return connMongoDB;
 }
+
+/*
+const mongoose = require('mongoose');
+
+mongoose
+  .connect('mongodb://db:27017/got-node-docker', {
+    useNewUrlParser: true
+  })
+  .then(result => {
+    console.log('MongoDB Conectado');
+  })
+  .catch(error => {
+    console.log(error);
+  });
 */
